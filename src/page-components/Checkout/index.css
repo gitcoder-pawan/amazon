@@ -1,0 +1,70 @@
+.checkout{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    /* flex-direction: column-reverse; */
+}
+.checkout__left{
+    padding: 20px;
+    width: 70%;
+}
+.checkout__left > h3{
+    margin-right: 10px;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.checkout__leftAdsImage{
+    width: 100%;
+    margin-bottom: 15px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.checkout__right{
+    position: sticky;
+    top: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 30%;
+    height: 140px;
+    background-color: rgb(236, 235, 235);
+    margin: 20px;
+    text-transform: capitalize;
+    border-radius: 4px;
+}
+.checkout__total{
+    margin-bottom: 10px;
+}
+.contain__gift{
+    display: flex;
+    margin-bottom: 10px;
+}
+.contain__gift > input{
+    margin-right: 10px;
+}
+.contain__gift >p {
+    font-size: 12px;
+}
+.checkout__proceedButton{
+    margin-top: 20px;
+    background: #f6cb5d;
+    padding: 8px;
+    color: #111;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29 ;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.checkout__proceedButton:hover{
+    background: #ecb939;
+}
+
+
+/* background: #ecb939; */
+
+
