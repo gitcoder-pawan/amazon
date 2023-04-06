@@ -1,0 +1,16 @@
+1. First we have added the required dependencies 
+
+
+Header Tips
+-----------
+1. To make header in static position , we have used sticky position with top 0.
+2. figure out whats the most common css that can be writeen for different component,
+    then write the common css for each component. After that write css class for particular 
+    component if required.
+
+Home Tips
+----------
+1. for fade effect we have used mask-image with linear gradient to give beautiful effect 
+2. IF we are using Link tag then make sure , compoenent in which Link tag is used must be wrapped inside <Router> {component}</Router>
+
+
