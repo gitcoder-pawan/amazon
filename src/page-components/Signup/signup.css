@@ -1,4 +1,4 @@
-.login{
+.signup{
     background: white;
     display: flex;
     align-items: center;
@@ -6,13 +6,13 @@
     height:100vh;
 }
 
-.login__logo{
+.signup__logo{
     width: 140px;
     height: 50px;
     object-fit: contain;
     margin: 10vh auto 10px auto;
 }
-.login__container{
+.signup__container{
     border: 1px solid lightgray;
     background: white;
     padding: 20px;
@@ -22,11 +22,11 @@
     border-radius: 5px;
 
 }
-.login__signin{
+.signup__signin{
     margin-bottom: 15px;
     align-self: center;
 }
-.login__container > input {
+.signup__container > input {
     margin-bottom: 15px;
     width: 100%;
     background: rgb(232, 240, 254);
@@ -36,12 +36,12 @@
     offset: none;
     border: transparent;
 }
-.login__password {
+.signup__password {
     display: flex;
     justify-content: space-between;
     padding: 2px;
 }
-.login__container > button {
+.signup__container > button {
     width: 100%;
     margin: 10px 0;
     border-radius: 4px;
@@ -49,28 +49,28 @@
     background-color: #f2b124;
     border: transparent;
 }
-.login__container > button:hover{
+.signup__container > button:hover{
     background: #ecb939;
     color: rgb(85, 62, 20);
 }
-.login__label{
+.signup__label{
     margin-left: 2px;
     margin-bottom: 2px;
     font-size: 14px;
 
 }
 
-.login__termsonditions{
+.signup__termsonditions{
     display: flex;
     align-items: flex-start;
     font-size: 14px;
     margin: 10px 0;
 }
-.login__termsonditions > input{
+.signup__termsonditions > input{
     margin-right: 5px;
     margin-top: 2px;
 }
-.login__error{
+.signup__error{
     font-size: 12px;
     color: red;
 }
