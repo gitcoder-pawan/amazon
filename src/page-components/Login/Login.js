@@ -8,6 +8,7 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({ email: '', password: '', terms_condition:false })
   const [error, setError] = useState({});
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const {state={}} = useLocation();
 
@@ -17,13 +18,18 @@ const Login = () => {
     })
   }
   const handleLogin = ()=>{
+    setLoading(true);
     signInWithEmailAndPassword(auth, formData.email, formData.password)
     .then((user)=>{
-      navigate('/');
       setError(null);
+      navigate('/');
+      window.location.reload();
     })
     .catch(error=>{
       setError(error);
+    })
+    .finally(()=>{
+      setLoading(false);
     })
   }
   const handleCreate = ()=>{
@@ -31,7 +37,7 @@ const Login = () => {
   }
   useEffect(() => {
     setFormData(p=>({...p, email:state?.email, password: state?.password}))
-  }, []);
+  }, [state?.email, state?.password]);
   return (
     <div className="login">
       <Link to='/'>
@@ -46,13 +52,13 @@ const Login = () => {
           <span onClick={()=>setShow(p=>!p)}>{show ? 'hide': 'show'}</span>
         </div>
           <input type={show ? 'text' : 'password'}  name='password' value={formData.password} onChange={handleChange} />
-        <button onClick={handleLogin}>Login</button>
+        <button onClick={handleLogin} disabled={loading}>{loading ? 'Logging': 'Login'}</button>
         <div className="login__error">{error?.message || ''}</div>
         <div className='login__termsonditions'>
           <input type="checkbox" name='terms_condition' checked={formData.terms_condition} value={formData.terms_condition} onChange={handleChange}/>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, est.</p>
         </div>
-        <button onClick={handleCreate}>create account</button>
+        <button onClick={handleCreate} disabled={loading}>create account</button>
 
       </div>
     </div>

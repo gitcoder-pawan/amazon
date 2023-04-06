@@ -8,6 +8,7 @@ const Signup = () => {
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({ email: '', password: '', terms_condition:false })
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData(p => {
@@ -18,6 +19,7 @@ const Signup = () => {
     navigate('/login');
   }
   const handleCreate = ()=>{
+    setLoading(true);
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
     .then(()=>{
       navigate('/login',{state: {email: formData.email, password: formData.password}});
@@ -25,6 +27,9 @@ const Signup = () => {
     })
     .catch(err=>{
       setError(err);
+    })
+    .finally(()=>{
+    setLoading(false);
     })
   }
   return (
@@ -34,8 +39,6 @@ const Signup = () => {
       </Link>
       <div className="signup__container">
         <h2 className='signup__signin'>Sign up</h2>
-        {/* <div className='signup__label'>Name</div>
-        <input autoComplete='off' type="text"  name='name' value={formData.name} onChange={handleChange} /> */}
         <div className='signup__label'>Email</div>
         <input autoComplete='off' type="email"  name='email' value={formData.email} onChange={handleChange} />
         <div className='signup__label signup__password'>
@@ -43,14 +46,14 @@ const Signup = () => {
           <span onClick={()=>setShow(p=>!p)}>{show ? 'hide': 'show'}</span>
         </div>
           <input autoComplete='off' type={show ? 'text' : 'password'}  name='password' value={formData.password} onChange={handleChange} />
-          <button onClick={handleCreate}>create account</button>
+          <button onClick={handleCreate} disabled={loading}>{loading? 'creating' : 'create'} account</button>
           <div className="signup__error">{error?.message || ''}</div>
         
         <div className='signup__termsonditions'>
           <input type="checkbox" name='terms_condition' checked={formData.terms_condition} value={formData.terms_condition} onChange={handleChange}/>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, est.</p>
         </div>
-        <button onClick={handleLogin}>Signin</button>
+        <button onClick={handleLogin} disabled={loading}>Signin</button>
       </div>
     </div>
   );

@@ -1,16 +1,32 @@
 import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TopLayer } from '../../context/TopLayer';
+import {signOut} from "firebase/auth";
+import { auth } from '../../firebase';
 import logo from "../../assets/amazon-logo-white.png"
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import './index.css';
 const Header = () => {
-    const { cartItem } = useContext(TopLayer);
+    const navigate = useNavigate();
+    const { cartItem, authUser, setAuthUser } = useContext(TopLayer);
     let totalCartCount = 0;
     Object.keys(cartItem).forEach((_id) => {
         totalCartCount += cartItem[_id].count;
     })
+
+    const handleLoginSignOut =()=>{
+        if(authUser){
+            signOut(auth).then(()=>{
+                setAuthUser(null);
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
+        }else{
+            navigate('/login');
+        }
+    }
     return (
         <div className='header'>
             <Link to='/'>
@@ -21,12 +37,12 @@ const Header = () => {
                 <SearchIcon className='header__searchIcon' fontSize='medium' />
             </div>
             <div className="header__nav">
-                <Link to='/login'>
-                    <div className="header__option">
-                        <div className="header__optionLineOne">Hello</div>
-                        <div className="header__optionLineTwo">Sign in</div>
-                    </div>
-                </Link>
+                
+                <div className="header__option" onClick={handleLoginSignOut}>
+                    <div className="header__optionLineOne">Hello</div>
+                    <div className="header__optionLineTwo">{authUser? authUser?.email?.split('@')[0] : 'Signin'}</div>
+                    {authUser && <div className="header__optionLineTwo">signout</div>}
+                </div>
 
                 <div className="header__option">
                     <div className="header__optionLineOne">Returns</div>
