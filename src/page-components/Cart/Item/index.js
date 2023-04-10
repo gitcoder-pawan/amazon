@@ -12,7 +12,7 @@ const Item = ({ item }) => {
         rating,
         image,
         count
-    } = item;
+    } = item || {};
 
 
     return (

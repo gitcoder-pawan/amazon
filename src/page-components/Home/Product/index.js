@@ -1,11 +1,13 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { TopLayer } from '../../../context/TopLayer';
 import GradeIcon from '@mui/icons-material/Grade';
+import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import "./index.css";
-const Product = ({id, title, currency, price, rating, image }) => {
-    const item = {id, title, currency, price, rating, image };
-    const {addToCart, setCartItem} = useContext(TopLayer)
+const Product = ({ id, title, currency, price, rating, image }) => {
+    const item = { id, title, currency, price, rating, image };
+    const { addToCart, setCartItem, cartItem } = useContext(TopLayer)
+    console.log("cartItem[id]", cartItem[id]? 1: 0);
     return (
         <div className="product">
             <div className="product__info">
@@ -21,9 +23,13 @@ const Product = ({id, title, currency, price, rating, image }) => {
                 </div>
             </div>
             <img src={image} alt="" />
-            <button >
-                <div className="product__buttonText" onClick={()=>addToCart(item, setCartItem)}>Add to cart</div>
-            </button>
+            {
+                cartItem[id] ? (<button className='product__added'>
+                <div className="product__buttonText product__addedButton">Added to cart <FileDownloadDoneIcon fontSize="small" color='#fff'/></div>
+            </button>) : (<button className='product__notAdded'>
+                    <div className="product__buttonText" onClick={() => addToCart(item, setCartItem)}>Add to cart</div>
+                </button>)
+            }
         </div >
     )
 }

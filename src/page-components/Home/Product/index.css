@@ -35,8 +35,6 @@
     background: #f6cb5d;
     color: #111;
     margin-top: 10px;
-    border: 1px solid;
-    border-color: #a88734 #9c7e31 #846a29 ;
     border-radius: 4px;
 }
 .product >button:hover {
@@ -46,4 +44,22 @@
     line-height: 10px;
     padding: 10px;
     text-align: center;
+}
+.product__addedButton{
+    display: flex;
+    align-items: center;
+    background: #4cb543;
+    color: white;
+    justify-content: center;
+    border: none;
+    padding: 3px;
+}
+.product__added{
+    border: 1px solid #4cb543;
+    font-size: 15px;
+    border-radius: 5px;
+}
+.product__notAdded{
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29 ;
 }
