@@ -4,6 +4,7 @@
     max-width: 1200px;
     margin: 0 auto;
     background: #fff;
+    min-height: calc(100vh - 60px);
     /* flex-direction: column-reverse; */
 }
 .cart__left{

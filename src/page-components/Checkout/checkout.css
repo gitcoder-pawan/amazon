@@ -1,0 +1,37 @@
+.checkout{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    /* we must give space around ' - ' sign to use calc fuction properly*/
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+}
+.checkout__heading{
+    margin-bottom: 20px;
+}
+.checkout__stepper{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+.checkout__stepperTab{
+    line-height: 10px;
+    border: 1px solid red;
+    border-bottom: none;
+    min-width: 150px;
+    border-radius: 4px 4px 0 0;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.checkout__stepperTabActive{
+    background: black;
+    color: white;
+    border-bottom: 4px solid green;
+}
+
+.checkout__menu{
+    padding: 10px;
+}
