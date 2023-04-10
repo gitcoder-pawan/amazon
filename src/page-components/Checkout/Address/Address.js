@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Address = () => {
+const Address = ({address, handleAddress}) => {
   return (
     <div>Address</div>
   )
