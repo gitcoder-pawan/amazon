@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Getting Started with Create React App
 
+# Getting Started with Create React App
+# if stuck while pushing code >>  eval "$(ssh-agent -s)" &&  ssh-add -K ~/.ssh/gitcoder_pawan   
+                    
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
