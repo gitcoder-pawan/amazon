@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import Cart from "./Cart"
 import Address from './Address/Address';
 import PaymentSection from './PaymentSection/PaymentSection';
 import './checkout.css';
+const promise = loadStripe('pk_test_51MvgfMSD5yny1Mhi4C60DPyPX2nQJYcWu21SxBUURAMycPH0ygGlCiuGGtg5ds3WMpsLwlWSBp8KuuaYWZdXiHHZ00CUia3iN8')
+
 const Checkout = () => {
   const [step, setStep] = useState(0);
   const [address, setAddress] = useState({});
@@ -16,7 +20,7 @@ const Checkout = () => {
   const menuMappings = {
     0: <Cart setStep={setStep} />,
     1: <Address address={address} setAddress={setAddress}/>,
-    2: <PaymentSection />,
+    2: <Elements stripe={promise}><PaymentSection /></Elements>,
   }
 
   return (
