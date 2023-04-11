@@ -51,6 +51,8 @@ const Address = ({ address, setAddress }) => {
             {(address.state || address.country) && <div>{address.state}, {address.country}</div>}
             {address.phone_number && <div>{address.phone_number}</div>}
           </p>}
+          {accordionOpenCondition && accordionAddress.delivery && <div className="checkout__addressNotFound">Address Not Available</div>
+          }
       </div>
       <div className="checkout__addressOption">
         <h5 onClick={() => handleAccordionAddress('new_address')}>Add New Address <span>{accordionAddress.new_address ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}</span></h5>

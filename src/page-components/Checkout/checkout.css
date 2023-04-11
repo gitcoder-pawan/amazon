@@ -17,6 +17,7 @@
 }
 .checkout__stepperTab{
     line-height: 10px;
+    text-align: center;
     border-bottom: none;
     min-width: 120px;
     border-radius: 4px 4px 0 0;
@@ -28,9 +29,10 @@
 }
 
 .checkout__stepperTabActive{
-    background: black;
-    color: white;
-    border-bottom: 4px solid green;
+    background: lightgray;
+    color: Black;
+    border-bottom: 4px solid gray;
+    font-weight: 600;
 }
 
 .checkout__menu{
