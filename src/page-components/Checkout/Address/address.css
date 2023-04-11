@@ -1,0 +1,39 @@
+
+.checkout__address{
+    width: 40%;
+}.checkout__addressOption{
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.checkout__addressOption h5{
+    display: flex;
+    justify-content: space-between;
+    background: lightgrey;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.checkout__addressOption p{
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.checkout__addressInputContainer{
+    padding: 10px;
+}
+.checkout__addressInput {
+    margin-bottom: 15px;
+    width: 100%;
+    background: rgb(232, 240, 254);
+    border-radius: 4px;
+    height: 35px;
+    padding: 10px;
+    offset: none;
+    border: transparent;
+}
+.checkout__addressLabel{
+    margin-left: 2px;
+    margin-bottom: 2px;
+    font-size: 14px;
+
+}

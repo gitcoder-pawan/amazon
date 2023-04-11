@@ -5,19 +5,17 @@ import PaymentSection from './PaymentSection/PaymentSection';
 import './checkout.css';
 const Checkout = () => {
   const [step, setStep] = useState(0);
-  const [address, setAddress] = useState({})
+  const [address, setAddress] = useState({});
 
   const handleStep = (index) => {
     setStep(index);
   }
 
-  const handleAddress = (e) => {
-    setAddress(p => ({ ...p, [e.target.name]: e.trget.value }));
-  }
+  
 
   const menuMappings = {
     0: <Cart setStep={setStep} />,
-    1: <Address address={address} handleAddress={handleAddress}/>,
+    1: <Address address={address} setAddress={setAddress}/>,
     2: <PaymentSection />,
   }
 
