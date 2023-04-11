@@ -61,9 +61,8 @@ const Address = ({ address, setAddress }) => {
               <input className='checkout__addressInput' {...itm} onChange={handleAddressChange} value={addressInput[itm.name]} />
             </div>
           })}
+          <button onClick={() => handleSave()}>Save</button>
         </div>}
-        {accordionAddress.new_address && <button onClick={() => handleSave()}>Save</button>}
-
       </div>
     </div>
   )
